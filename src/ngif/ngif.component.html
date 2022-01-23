@@ -1,0 +1,59 @@
+<!-- <div *ngIf="isLoggedIn">   
+  <label class="mr-2">Hello, User!</label>
+  <button class="btn btn-primary" (click)="isLoggedIn = !isLoggedIn">
+    Logout
+  </button>
+</div>
+<div *ngIf="!isLoggedIn"> 
+ <button class="btn btn-default mr-2" (click)="isLoggedIn = !isLoggedIn">
+  Login
+</button>
+<button class="btn btn-primary">Signup</button>
+</div> -->
+
+
+<!-- 
+<div *ngIf="isLoggedIn; else loggedOut"> 
+<label class="mr-2">Hello, User!</label>
+<button class="btn btn-primary" (click)="isLoggedIn = !isLoggedIn">
+  Logout
+</button>
+</div>
+<ng-template #loggedOut>
+  <div *ngIf="!isLoggedIn">
+  <button class="btn btn-default mr-2" (click)="isLoggedIn = !isLoggedIn">
+  Login
+</button>
+<button class="btn btn-primary">Signup</button>
+ </div>
+</ng-template> -->
+
+
+
+<div *ngIf="isLoggedIn; then loggedIn; else loggedOut"></div>
+
+<ng-template #loggedIn>  <!-- loggedIn template-->
+  <div>
+ <label class="mr-2">Hello, User!</label>
+<button class="btn btn-primary" (click)="isLoggedIn = !isLoggedIn">
+  Logout
+</button>  
+  </div>
+</ng-template>
+
+<ng-template #loggedOut>  <!-- loggedOut template -->
+  <div>
+    <button class="btn btn-default mr-2" (click)="isLoggedIn = !isLoggedIn">
+      Login
+    </button>
+    <button class="btn btn-primary">Signup</button>
+  </div>
+</ng-template>
+
+<div id="bitCoinCont">
+  <span *ngIf="bitcoinData | async as data; else loading"> <!-- the async pipe here ensures that the content of the span element will be rendered only after bitcoin data is fetched -->
+    {{ data['bpi']['USD']['rate'] }}
+  </span>
+  <button class="btn btn-primary" (click)="getBitcoinData()">Refresh</button>
+  <ng-template #loading>Please wait...</ng-template>
+</div>
