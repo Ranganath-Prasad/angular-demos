@@ -11,7 +11,6 @@
 <button class="btn btn-primary">Signup</button>
 </div> -->
 
-
 <!-- 
 <div *ngIf="isLoggedIn; else loggedOut"> 
 <label class="mr-2">Hello, User!</label>
@@ -20,19 +19,19 @@
 </button>
 </div>
 <ng-template #loggedOut>
-  <div *ngIf="!isLoggedIn">
+  <div>
   <button class="btn btn-default mr-2" (click)="isLoggedIn = !isLoggedIn">
   Login
 </button>
 <button class="btn btn-primary">Signup</button>
- </div>
-</ng-template> -->
+</div>
+</ng-template>  -->
 
 
 
 <div *ngIf="isLoggedIn; then loggedIn; else loggedOut"></div>
 
-<ng-template #loggedIn>  <!-- loggedIn template-->
+<ng-template #loggedIn> 
   <div>
  <label class="mr-2">Hello, User!</label>
 <button class="btn btn-primary" (click)="isLoggedIn = !isLoggedIn">
@@ -41,7 +40,7 @@
   </div>
 </ng-template>
 
-<ng-template #loggedOut>  <!-- loggedOut template -->
+<ng-template #loggedOut>  
   <div>
     <button class="btn btn-default mr-2" (click)="isLoggedIn = !isLoggedIn">
       Login
